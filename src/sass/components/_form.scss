@@ -1,0 +1,113 @@
+.form {
+  &__group {
+    
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+
+  &__input {
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: .3rem solid transparent;
+    border-radius: .2rem;
+    // input elements dont automatically inherit fonts
+    color: inherit;
+    display: block;
+    // input elements don't automatically inherit fonts
+    font-family: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem $side-input-padding;
+    transition: all .3s;
+    width: 90%;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
+
+    &:focus {
+      border-bottom: .3rem solid $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      outline: none;
+      
+      &:invalid {
+        border-bottom: .3rem solid $color-secondary-dark;
+      }
+    }
+
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: $side-input-padding;
+    margin-top: .7rem;
+    transition: all .3s;
+  }
+
+  // note how this is not done on the input selector
+  // + adjacent sibling selector
+  // ~ general sibling selector
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    transform: translateY(-4rem);
+    visibility: hidden;
+  }
+
+  &__radio-button {
+    border: .5rem solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    height: $radio-button-size-outer;
+    left: 0;
+    top: -.4rem;
+    position: absolute;
+    width: $radio-button-size-outer;
+
+    &::after {
+      background-color: $color-primary;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: $radio-button-size-inner;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity .5s;
+      width: $radio-button-size-inner;
+    }
+  }
+
+  &__radio-group {
+    display: inline-block;
+    width: 49%;
+
+    @include respond(tab-port) {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-input:checked ~ &__radio-label > &__radio-button::after {
+    opacity: 1;
+  }
+
+  &__radio-label {
+    cursor: pointer;
+    font-size: $font-size-default;
+    padding-left: 4.5rem;
+    position: relative;
+  }
+}

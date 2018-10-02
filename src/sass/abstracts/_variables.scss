@@ -1,0 +1,77 @@
+// colors
+$color-black: #000;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-primary: #55c57a;
+$color-primary-dark: #28b485;
+$color-primary-light: #7ed56f;
+$color-secondary-dark: #ff7730;
+$color-secondary-light: #ffb900;
+$color-tertiary-dark: #5643fa;
+$color-tertiary-light: #2998ff;
+$color-white: #fff;
+
+// card
+$card-back-direction: to bottom right;
+$card-heading-opacity: .85;
+$card-height: 52rem;
+$card-primary-gradient: linear-gradient(
+  $card-back-direction,
+  $color-primary-light,
+  $color-primary-dark
+);
+$card-secondary-gradient: linear-gradient(
+  $card-back-direction,
+  $color-secondary-light,
+  $color-secondary-dark
+);
+$card-tertiary-gradient: linear-gradient(
+  $card-back-direction,
+  $color-tertiary-light,
+  $color-tertiary-dark
+);
+
+// font-size
+$font-size-default: 1.6rem;
+
+// form
+$radio-button-size-inner: 1.3rem;
+$radio-button-size-outer: 3rem;
+$side-input-padding: 2rem;
+
+// grid
+$gutter-horizontal: 6rem;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$grid-width: 114rem;
+
+// popup
+$popup-z-index: 200;
+
+// navigation
+$nav-animation-time: .8s;
+$nav-background-offset: 6.5rem;
+$nav-background-size-0: 6rem;
+$nav-background-z-index: 100;
+// unalphabetical block start
+$nav-button-size: $nav-background-size-0 + 1rem;
+$nav-button-offset: (
+  $nav-background-offset
+    - .5 * ($nav-button-size - $nav-background-size-0)
+);
+// unalphabetical block end
+// unalphabetical block start
+$nav-nav-z-index: $nav-background-z-index + 1;
+$nav-button-z-index: $nav-nav-z-index + 1;
+// unalphabetical block end
+$nav-icon-line-rotation-checked: 135deg;
+$nav-icon-line-space-checked: 0;
+$nav-icon-line-space-hover: 1rem;
+$nav-icon-line-space-normal: .8rem;
+
+// story
+$story-circle: circle(50% at 50% 50%);
+$story-transition: all .5s ease;

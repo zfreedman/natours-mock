@@ -1,0 +1,150 @@
+.popup {
+  background-color: rgba($color-black, .8);
+  height: 100vh;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: all .3s;
+  width: 100%;
+  visibility: hidden;
+  z-index: $popup-z-index;
+
+  @supports (-webkit-backdrop-filter: blur(10px))
+  or (backdrop-filter: blur(10px)) {
+    background-color: rgba($color-black, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  &__a {
+    background-color: red;
+    flex-grow: 1;
+  }
+
+  &__b {
+    background-color: green;
+    flex-grow: 1;
+  }
+
+  &__close {
+    &:link, &:visited {
+      color: $color-grey-dark-2;
+      display: inline-block;
+      font-size: 3rem;
+      line-height: 1;
+      position: absolute;
+      text-decoration: none;
+      right: 2.5rem;
+      top: 2.5rem;
+      transition: color .2s;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  
+  &__content {
+    @include center-horizontal-vertical;
+
+    background-color: $color-white;
+    border-radius: .3rem;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    // display: table;
+    display: flex;
+    opacity: 0;
+    overflow: hidden;
+    // repeating this from center-horizontal-vertical mixin
+    // because only 1 transform can be in a declare block at a time
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .5s .2s;
+    width: 75%;
+
+    @include respond(phone) {
+      height: 50rem;
+    }
+  }
+
+  &__left {
+    align-items: center;
+    // display: table-cell;
+    background-color: $color-grey-light-2;
+    display: flex;
+    flex-basis: 0;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 5rem;
+    // width: 33.333333%;
+
+    @include respond(reg-desktop) {
+      display: none;
+    }
+  }
+
+  &__img {
+    // border-radius: 50%;
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // background-size: cover;
+    display: block;
+    height: auto;
+    width: 100%;
+
+    &-0 {
+      background-image: url("../img/nat-8.jpg");
+    }
+
+    &-1 {
+      background-image: url("../img/nat-9.jpg");
+    }
+  }
+  
+  &__right {
+    // display: table-cell;
+    flex-basis: 0;
+    flex-grow: 2;
+    margin: auto 0;
+    padding: 3rem 5rem;
+    position: relative;
+    // vertical-align: middle;
+    // width: 66.666667%;
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__text {
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: .1rem solid $color-grey-light-2;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    hyphens: auto;
+
+    -ms-hyphens: auto;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 4rem;
+    -webkit-column-rule: .1rem solid $color-grey-light-2;
+    -webkit-hyphens: auto;
+
+    @include respond(phone) {
+      // background-color: red;
+      border: .1rem solid $color-grey-dark-2;
+      border-radius: 1rem;
+      padding: 1rem;
+      column-count: inherit;
+      height: 20rem;
+      overflow-y: scroll;
+      -webkit-column-count: inherit;
+    }
+  }
+}

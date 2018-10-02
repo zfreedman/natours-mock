@@ -1,0 +1,48 @@
+/* universal reset */
+*, *::after, *::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+html {
+  /* font-size: 10px; */
+
+  /* the below will scale if the user changes the browser's default
+  font-size from 16px to something else */
+  font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
+
+  // defines what 1 rem is, so it's more of a base setting,
+  // even though IT IS still typography
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 9px
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+
+  // @include respond(phone) {
+  //   font-size: 30%; //1rem = 4.8px
+  // }
+
+  // this is a min-width so it follows the opposite ordering
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12px
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
